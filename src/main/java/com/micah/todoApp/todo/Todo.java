@@ -2,9 +2,12 @@ package com.micah.todoApp.todo;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.Size;
+
 public class Todo {
     private int id;
     private String username;
+    @Size(min = 10, message = "Enter atleast 10 chars")
     private String description;
     private LocalDate targetDate;
     private boolean done;
@@ -63,13 +66,13 @@ public class Todo {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Todo {" +
-        "id=" + id + ", username='" + username + '\'' +
-        ", description='" + description + '\'' +
-        ", targetDate=" + targetDate +
-        ", done=" + done +
-        '}';
+                "id=" + id + ", username='" + username + '\'' +
+                ", description='" + description + '\'' +
+                ", targetDate=" + targetDate +
+                ", done=" + done +
+                '}';
     }
 
 }
