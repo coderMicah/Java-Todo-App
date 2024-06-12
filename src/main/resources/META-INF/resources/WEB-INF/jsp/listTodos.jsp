@@ -8,16 +8,15 @@
     </head>
 
     <body>
-        <div class="container">
-            <h2>Welcome ${name}</h2>
-            <hr>
+        <%@ include file="common/navigation.jsp" %>
+        <div class="container ">
 
-            <h1>TODOS</h1>
+            <h1 class="my-5">TODOS</h1>
 
-            <table class="table">
+            <table class="table my-5">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <!-- <th>ID</th> -->
                         <th>Description</th>
                         <th>Target Date</th>
                         <th>Is Done</th>
@@ -28,7 +27,7 @@
                 <tbody>
                     <c:forEach items="${todos}" var="todo">
                         <tr>
-                            <td>${todo.id}</td>
+                            <!-- <td>${todo.id}</td> -->
                             <td>${todo.description}</td>
                             <td>${todo.targetDate}</td>
                             <td>${todo.done}</td>
