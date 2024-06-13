@@ -16,14 +16,16 @@ public class TodoService {
     private static int todosCount = 0;
 
     static {
-        todos.add(new Todo(++todosCount, "John Doe", "Learn AWS", LocalDate.now().plusYears(1), false));
-        todos.add(new Todo(++todosCount, "John Doe", "Learn DevOps", LocalDate.now().plusYears(2), false));
+        todos.add(new Todo(++todosCount, "Micah", "Learn AWS", LocalDate.now().plusYears(1), false));
+        todos.add(new Todo(++todosCount, "Micah", "Learn DevOps", LocalDate.now().plusYears(2), false));
         todos.add(
-                new Todo(++todosCount, "John Doe", "Learn FullStack Development", LocalDate.now().plusYears(3), false));
+                new Todo(++todosCount, "Micah", "Learn FullStack Development", LocalDate.now().plusYears(3), false));
     }
 
     public List<Todo> findByUserName(String username) {
-        return todos;
+        Predicate<? super Todo> predicate = todo -> todo.getUsername().equalsIgnoreCase(username);
+        return todos.stream().filter(predicate).toList();
+
     }
 
     public void addTodo(String username, String description, LocalDate targetDate, boolean isDone) {
@@ -44,7 +46,9 @@ public class TodoService {
     public void updateTodo(@Valid Todo todo) {
         deleteById(todo.getId());
         todos.add(todo);
-      
+
     }
+
+   
 
 }

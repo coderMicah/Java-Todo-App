@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <%@ include file="common/navigation.jsp" %>
     <div class="container">
         <h1>Welcome ${name}</h1>
         <hr>
