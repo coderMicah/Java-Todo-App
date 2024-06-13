@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import jakarta.validation.Valid;
 
+
+//WE USE SERVICE IF WE ARE NOT TALKING TO THE DB WHEN WE ARE USING STATIC  DATA
 @Service
 public class TodoService {
 
@@ -23,6 +25,7 @@ public class TodoService {
     }
 
     public List<Todo> findByUserName(String username) {
+        
         Predicate<? super Todo> predicate = todo -> todo.getUsername().equalsIgnoreCase(username);
         return todos.stream().filter(predicate).toList();
 
